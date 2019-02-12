@@ -1,38 +1,36 @@
 package ua.lviv.iot.lab1;
 
 public class XmasTree {
-	private String name = "NoName";
+	private String name;
 	private int height;
 	private int price;
-	private String material = "NoMaterial"; // material of production
-
+	private String material; // material of production
 	private int radius; // radius of basis
-	private String country = "NoCountry"; // country of production
-
+	private String country; // country of production
 	private static int numberOfTrees;
-
 	protected int numberOfBranches;
 	protected boolean wasUsed = false;
 
-	public XmasTree() {
+	public XmasTree(String name, int height, int price, String material,
+			int radius, String country, int numberOfBranches, boolean wasUsed) {
 		numberOfTrees++;
-	}
-
-	public XmasTree(String name, int height, int price, String material) {
-		this();
 		this.name = name;
 		this.height = height;
 		this.price = price;
 		this.material = material;
-	}
-
-	public XmasTree(String name, int height, int price, String material,
-			int radius, String country, int numberOfBranches, boolean wasUsed) {
-		this(name, height, price, material);
 		this.radius = radius;
 		this.country = country;
 		this.numberOfBranches = numberOfBranches;
 		this.wasUsed = wasUsed;
+	}
+	
+	public XmasTree(String name, int height, int price, String material) {
+		this(name, height, price, material,
+			0, "No Country", 0, false);
+	}
+	
+	public XmasTree() {
+		this("No Name", 0, 0, "No Material");
 	}
 
 	public String toString() {
